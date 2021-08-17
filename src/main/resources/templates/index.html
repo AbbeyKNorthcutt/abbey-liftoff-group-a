@@ -9,6 +9,42 @@
 
 
 </header>
+<script>
 
+   function bookFinder() {
+
+      document.getElementById("list-output").innerHTML="";
+      fetch("https://www.googleapis.com/books/v1/volumes?q="+document.getElementById("bookInput").value)
+              .then(a =>a.json())
+              .then(response =>{
+
+                 for(let i=0;i<response.items.length;i++) {
+                    let item = response.items[i];
+
+                    //document.getElementById("list-output").innerHTML+="<h2>"+response.items[i];
+                    document.getElementById("list-output").innerHTML +=
+                            "<div>"+
+                            "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>"+
+                            "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
+                            "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
+                            "<b>Published Date: </b>" + item.volumeInfo.publishedDate + "<br>" +
+                            "<b>Description: </b>" + item.volumeInfo.description + "<br>"
+                            +"</div>"+"<br>";
+                 }
+              })
+   }
+</script>
+
+<input id="bookInput" placeholder="Search Books!...">
+<button id="search" class = btn btn-primary onclick="bookFinder()">Search Books</button>
+</button><br>
+
+<br>
+<h2 class="text-left">Search Result</h2>
+<div class="book-list" >
+   <div id="list-output" class="">
+
+   </div>
+</div>
 </body>
 </html>
