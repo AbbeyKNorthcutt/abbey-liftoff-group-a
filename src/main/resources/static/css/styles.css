@@ -24,3 +24,9 @@
     width:121px;
     text-align: center;
 }
+
+.dropdown {
+  position: relative;
+	float: right;
+	cursor: pointer;
+}
