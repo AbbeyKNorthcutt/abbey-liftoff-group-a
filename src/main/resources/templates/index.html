@@ -37,9 +37,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <!-- Dropdown Menu -->
+<div class="d-flex align-content-start flex-wrap">
 <div class="dropdown">
    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Genre
+<!--      Genre-->
    </button>
    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
       <li><a class="dropdown-item" href="#">All Genres</a></li>
@@ -49,13 +50,14 @@
       <li><a class="dropdown-item" href="#">Technology</a></li>
    </ul>
 </div>
-<!-- Search Button	 -->
-<div><button id="search" class = btn btn-primary onclick="bookFinder()">Search Books</button></div>
+
 <!-- Search Bar  -->
 <div><input id="bookInput" placeholder="Search Books!..."></div>
-
+   <!-- Search Button	 -->
+   <div><button id="search" class = btn btn-primary onclick="bookFinder()">Search Books</button></div>
 <br>
 
+</div>
 <br>
 <h2 class="text-left">Search Result</h2>
 <div class="book-list" >
