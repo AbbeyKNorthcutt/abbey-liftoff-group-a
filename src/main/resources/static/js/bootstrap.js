@@ -10,7 +10,7 @@ function searchTermStorage() {
  function search() {
 
 
-      fetch("https://www.googleapis.com/books/v1/volumes?q=" + localStorage.getItem("searchTerm"))
+      fetch("https://www.googleapis.com/books/v1/volumes?q=intitle:" + localStorage.getItem("searchTerm")+"&maxResults=40&startIndex=0")
               .then(a =>a.json())
               .then(response =>{
 
