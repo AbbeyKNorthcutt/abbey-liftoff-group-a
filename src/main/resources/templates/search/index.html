@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container" th:style="'background: url('+@{/image/backgroundpic.png}+'); background-repeat: no-repeat, repeat; background-size: cover;'">
+<body class="container" th:style="'background: url('+@{/image/backgroundpic.png}+'); background-repeat: no-repeat; background-size: cover;'" onload="search()">
 
 <header th:fragment="header">
     <div class="header"><a href="libImage.png"><img src="img\libImage.png"></a><h1>LiftOff Library</h1>
@@ -9,6 +9,17 @@
 
 
 </header>
-<p>search</p>
+
+<input type="search" id="bookInput" placeholder="Search Books!...">
+<button id="search" class = btn btn-primary onclick="searchTermStorage();window.location.href = '/search';">Search Books</button>
+</button><br>
+
+<br>
+<h2 class="text-left">Search Result</h2>
+<div class="book-list" >
+    <div id="list-output" class="">
+
+    </div>
+</div>
 </body>
 </html>
