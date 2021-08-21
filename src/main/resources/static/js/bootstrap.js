@@ -24,7 +24,7 @@ function searchTermStorage() {
                             "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                             "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
                             "<b>Published Date: </b>" + item.volumeInfo.publishedDate + "<br>" +
-                            "<b>Description: </b>" + item.volumeInfo.description + "<br>"
+                            "<b>Description: </b>" + item.volumeInfo.description.slice(0, 200) +                              "..." + "<br>"
                             +"</div>"+"<br>";
                  }
               })
