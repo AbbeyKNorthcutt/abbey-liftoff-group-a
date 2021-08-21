@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container" th:style="'background: url('+@{/image/backgroundpic.png}+'); background-repeat: no-repeat, repeat; background-size: cover;'">
+<body class="container" th:style="'background: url('+@{/image/backgroundpic.png}+'); background-repeat: no-repeat; background-size: cover;'" onload="search()">
 
 <header th:fragment="header">
     <div class="header"><a href="libImage.png"><img src="img\libImage.png"></a><h1>LiftOff Library</h1>
@@ -9,6 +9,34 @@
 
 
 </header>
-<p>search</p>
+<!-- Code for menu bar-->
+<div class="d-flex align-content-start flex-wrap">
+    <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            All Categories
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <!-- If no selection then all categories will be searched -->
+            <li><a class="dropdown-item" name="history" href="#">History</a></li>
+            <li><a class="dropdown-item" name ="sports" href="#">Sports</a></li>
+            <li><a class="dropdown-item" name="nonFiction" href="#">Non Fiction</a></li>
+            <li><a class="dropdown-item" name = "technology" href="#">Technology</a></li>
+        </ul>
+    </div>
+
+
+    <div><input type="search" id="bookInput" placeholder="Search Books!...">
+<button id="search" class = btn btn-primary onclick="searchTermStorage();window.location.href = '/search';">Search Books</button>
+</button></div><br>
+
+<br>
+<h2 class="text-left">Search Result</h2>
+<div class="book-list" >
+    <div id="list-output" class="">
+
+    </div>
+</div>
+
 </body>
 </html>
