@@ -21,8 +21,8 @@ function searchTermStorage() {
                     let item = response.items[i];
                     bookCount++;
                     document.getElementById("list-output").innerHTML +=
-                            "<div>"+
-                            "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>"+
+                    "<div>"+
+                            "<br"+"<b><a href='/book'> <img src=" + item.volumeInfo.imageLinks.thumbnail + "</a>" + "<br>"+
                             "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                             "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
                             "<b>Published Date: </b>" + item.volumeInfo.publishedDate + "<br>" +
