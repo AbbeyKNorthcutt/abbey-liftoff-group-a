@@ -15,6 +15,7 @@ function searchTermStorage() {
               .then(a =>a.json())
               .then(response =>{
 
+      // fetch("https://www.googleapis.com/books/v1/volumes?q=" + document.getElementById("dropdownMenuButton1").value + document.getElementById("bookInput").value)
 
 
                  for(let i=0;i<response.items.length;i++) {
@@ -35,3 +36,14 @@ function searchTermStorage() {
               })
 
    }
+
+
+// Function to populate the dropdown menu with the user selected category
+function populateDropdown(){
+    $(".dropdown-menu li a").click(function(){
+     var selText = $(this).text();
+     $(this).parents('.dropdown').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+    });
+}
+
+populateDropdown();
