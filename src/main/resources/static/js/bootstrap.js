@@ -20,17 +20,23 @@ function searchTermStorage() {
 
                  for(let i=0;i<response.items.length;i++) {
                     let item = response.items[i];
-                    bookCount++;
-                    document.getElementById("list-output").innerHTML +=
-                            "<div>"+
-                            "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>"+
-                            "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
-                            "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
-                            "<b>Published Date: </b>" + item.volumeInfo.publishedDate + "<br>" +
-                            "<b>Description: </b>" + item.volumeInfo.description.slice(0, 200) +                              "..." + "<br>"
-                            +"</div>"+"<br>";
-                            document.getElementById("searchResultNumber").innerHTML = "Search Results: " + bookCount;
+
+                    // TODO: Compare the book item's subject to the category that the user selected (see searchByCategory below)
+//                    if (item.volumeInfo.subject == searchByCategory()) {
+
+                        bookCount++;
+
+                        document.getElementById("list-output").innerHTML +=
+                                "<div>"+
+                                "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>"+
+                                "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
+                                "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
+                                "<b>Published Date: </b>" + item.volumeInfo.publishedDate + "<br>" +
+                                "<b>Description: </b>" + item.volumeInfo.description.slice(0, 200) +                              "..." + "<br>"
+                                +"</div>"+"<br>";
+                                document.getElementById("searchResultNumber").innerHTML = "Search Results: " + bookCount;
                  }
+//                 }
 
 
               })
@@ -47,3 +53,24 @@ function populateDropdown(){
 }
 
 populateDropdown();
+
+// TODO: Function to retrieve the category the user selected NOT WORKING YET
+function searchByCategory() {
+
+	// Declare empty array to hold the active dropdown value
+			let dropdownChoice = [];
+
+	// Check for active value in dropdown
+			let menu = document.getElementsByClassName("caret");
+			let activeValue = menu.options[menu.selectedIndex].value;// get selected option value
+			let text = menu.options[menu.selectedIndex].text;
+
+	// Push active value to the caret array
+			dropdownChoice.push(text);
+
+		// Fetch the api loop through the categories to find the data that matches
+	// volumeInfo.categories[]
+
+			return dropdownChoice;
+
+	}
