@@ -16,7 +16,7 @@ function searchTermStorage() {
  function search() {
       let bookCount = 0;
 
-      fetch("https://www.googleapis.com/books/v1/volumes?q=intitle:" + localStorage.getItem("searchTerm") + localStorage.getItem("categorySelected") +"&maxResults=40&startIndex=0")
+      fetch("https://www.googleapis.com/books/v1/volumes?q=intitle:" + localStorage.getItem("searchTerm") +"&maxResults=40&startIndex=0")
               .then(a =>a.json())
               .then(response =>{
 
