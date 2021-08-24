@@ -13,7 +13,12 @@ Filter: Users will be able to browse for books by category.
 Carousel: Several books displayed in a carousel for the users to view.
 
 ### Technologies
-Java, Spring Boot, Bootstrap, Twilio, MySQL, Thymeleaf, Hibernate, Google Books API.
+*Java
+*Spring Boot
+*Bootstrap
+*Thymeleaf
+*Hibernate
+*Google Books API
 
 ### What I'll Have to Learn
 We will need to learn how to implement Google Books API and Bootstrap.
