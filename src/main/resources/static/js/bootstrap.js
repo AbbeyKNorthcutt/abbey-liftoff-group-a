@@ -1,39 +1,72 @@
 
+
 function searchTermStorage() {
 
-      let input = document.getElementById("bookInput").value;
+    let input = document.getElementById("bookInput").value;
 
-      localStorage.setItem("searchTerm", input);
-
- }
-
- function search() {
+    localStorage.setItem("searchTerm", input);
 
 
-      fetch("https://www.googleapis.com/books/v1/volumes?q=intitle:" + localStorage.getItem("searchTerm")+"&maxResults=40&startIndex=0")
-              .then(a =>a.json())
-              .then(response =>{
+}
 
-                 for(let i=0;i<response.items.length;i++) {
-                    let item = response.items[i];
+function search() {
+    let bookCount = 0;
 
-                    //document.getElementById("list-output").innerHTML+="<h2>"+response.items[i];
-                    document.getElementById("list-output").innerHTML +=
-                            "<div>"+
-                            "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>"+
-                            "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
-                            "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
-                            "<b>Published Date: </b>" + item.volumeInfo.publishedDate + "<br>" +
-                            "<b>Description: </b>" + item.volumeInfo.description + "<br>"
-                            +"</div>"+"<br>";
-                 }
-              })
-
-   }
+    fetch("https://www.googleapis.com/books/v1/volumes?q=intitle:" + localStorage.getItem("searchTerm")+"&maxResults=40&startIndex=0")
+        .then(a =>a.json())
+        .then(response =>{
 
 
-   // JQuery to show selected category in dropdown menu
-   $(".dropdown-menu li a").click(function(){
-     var selText = $(this).text();
-     $(this).parents('.dropdown').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
-   });
+
+            for(let i=0;i<response.items.length;i++) {
+                let item = response.items[i];
+                bookCount++;
+                document.getElementById("list-output").innerHTML +=
+                    "<div>"+
+                    "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>"+
+                    "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
+                    "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
+                    "<b>Published Date: </b>" + item.volumeInfo.publishedDate + "<br>" +
+                    "<b>Description: </b>" + item.volumeInfo.description.slice(0, 200) +                              "..." + "<br>"
+                    +"</div>"+"<br>";
+                document.getElementById("searchResultNumber").innerHTML = "Search Results: " + bookCount;
+            }
+
+
+        })
+
+}
+
+function myCarousel(){
+    fetch("https://www.googleapis.com/books/v1/volumes?q=harry+potter+intitle:")
+        .then(a=>a.json())
+        .then(response =>{
+            for(let i=0;i<3;i++) {
+                let item = response.items[i];
+                document.getElementById("overlay-image").innerHTML =
+                    "<div>"+
+                    "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>";
+
+                document.getElementsByClassName("carousel-container").innerHTML =
+                    "<h1>" + item.volumeInfo.title + "</h1>"
+
+            }
+        })
+
+
+}
+
+function myCarouselTwo(){
+    fetch("https://www.googleapis.com/books/v1/volumes?q=bob+intitle:")
+        .then(a=>a.json())
+        .then(response =>{
+            for(let i=0;i<3;i++) {
+                let item = response.items[i];
+                document.getElementById("overlay-image2").innerHTML =
+                    "<div>"+
+                    "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>";
+            }
+        })
+
+
+}
