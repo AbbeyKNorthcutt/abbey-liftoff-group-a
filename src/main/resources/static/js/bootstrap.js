@@ -7,7 +7,8 @@ function searchTermStorage() {
 
  }
 
- function categorySelectedStorage() {
+function categorySelectedStorage() {
+
       let menuSelection = document.getElementById("caret").value;
 
       localStorage.setItem("categorySelected", span);
@@ -51,10 +52,16 @@ function searchTermStorage() {
 
 // Function to populate the dropdown menu with the user selected category
 function populateDropdown(){
-    $(".dropdown-menu li a").click(function(){
-     var selText = $(this).text();
-     $(this).parents('.dropdown').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
-    });
+
+    $( document ).ready(function() {
+         $('.dropdown').each(function (key, dropdown) {
+             var $dropdown = $(dropdown);
+             $dropdown.find('.dropdown-menu li a').on('click', function () {
+                 $dropdown.find('button').text($(this).text()).append(' <span class="caret"></span>');
+             });
+         });
+     });
+
 }
 
 populateDropdown();
