@@ -4,14 +4,13 @@ function searchTermStorage() {
       let input = document.getElementById("bookInput").value;
 
       localStorage.setItem("searchTerm", input);
-
  }
 
 function categorySelectedStorage() {
 
-      let menuSelection = document.getElementById("caret").value;
+      let menuSelection = document.getElementById('menu').value;
 
-      localStorage.setItem("categorySelected", span);
+      localStorage.setItem("menu", menuSelection);
  }
 
  function search() {
@@ -52,19 +51,25 @@ function categorySelectedStorage() {
 
 // Function to populate the dropdown menu with the user selected category
 function populateDropdown(){
-
-    $( document ).ready(function() {
-         $('.dropdown').each(function (key, dropdown) {
-             var $dropdown = $(dropdown);
-             $dropdown.find('.dropdown-menu li a').on('click', function () {
-                 $dropdown.find('button').text($(this).text()).append(' <span class="caret"></span>');
-             });
-         });
-     });
-
-}
+    $(".dropdown-menu li a").click(function(){
+     var selText = $(this).text();
+     $(this).parents('.dropdown').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+    });
 
 populateDropdown();
+
+// Finds value of dropdown menu
+function dropdownValue() {
+    $(document).ready(function(){
+      $('#fldCategory UL LI A').click(function (e) {
+        var sVal = e.currentTarget.text;
+        $('#fldCategory BUTTON').html(sVal + ' <span class="caret"></span>');
+        console.log(sVal);
+      });
+    });
+}
+
+dropdownValue();
 
 // TODO: Function to retrieve the category the user selected NOT WORKING YET
 function searchByCategory() {
@@ -72,7 +77,7 @@ function searchByCategory() {
 	// Declare empty array to hold the active dropdown value
 			let dropdownChoice = [];
 
-	// Check for active value in dropdown
+	// Check for active value in dropdown TODO: Need to figure out how to write this without options and select since our dropdown uses ul and li
 			let menu = document.getElementsByClassName("caret");
 			let activeValue = menu.options[menu.selectedIndex].value;// get selected option value
 			let text = menu.options[menu.selectedIndex].text;
@@ -82,6 +87,15 @@ function searchByCategory() {
 
 		// Fetch the api loop through the categories to find the data that matches
 	// volumeInfo.categories[]
+	        fetch("https://www.googleapis.com/books/v1/volumes?q=" + document.getElementById("menu").value)
+	         .then(a =>a.json())
+             .then(response =>{
+                    for(let i=0;i<response.items.length;i++) {
+                        let item = response.items[i];
+
+                 }
+             }
+
 
 			return dropdownChoice;
 
