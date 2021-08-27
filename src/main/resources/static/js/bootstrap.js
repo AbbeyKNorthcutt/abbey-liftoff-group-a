@@ -8,10 +8,24 @@ function searchTermStorage() {
 
 function categorySelectedStorage() {
 
-      let menuSelection = document.getElementById('menu').value;
+      // let menuSelection = document.getElementById('menu').value;
+      // localStorage.setItem("menu", menuSelection);
 
-      localStorage.setItem("menu", menuSelection);
+	$(document).ready(function(){
+
+  $('#fldCategory UL LI A').click(function (e) {
+    var sVal = e.currentTarget.text;
+
+    $('#fldCategory BUTTON').html(sVal + ' <span class="caret"></span>');
+    alert(sVal);
+
+		localStorage.setItem("menuChoice", sVal)
+
+  });
+});
+
  }
+
 
  function search() {
       let bookCount = 0;
@@ -66,15 +80,15 @@ $(document).ready(function(){
     $('#fldCategory BUTTON').html(sVal + ' <span class="caret"></span>');
 		$(this).parents('.dropdown').find('.dropdown-toggle').html(sVal+' <span class="caret"></span>');
     alert(sVal);
-		let activeMenu = [];
-		//Attempting to push value selected into the empty array to be compared to the API data
-		activeMenu.push ({
-        sVal: $(this).val()
-		});
-		// uri to get the history subject
+//		let activeMenu = [];
+//		//Attempting to push value selected into the empty array to be compared to the API data
+//		activeMenu.push ({
+//        sVal: $(this).val()
+//		});
+//		// uri to get the history subject
   });
 });
-dropdownValue();
+
 
 // TODO: Function to retrieve the category the user selected NOT WORKING YET
 //function searchByCategory() {
