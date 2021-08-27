@@ -17,8 +17,8 @@
    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 
-<!--&lt;!&ndash; Jquery  &ndash;&gt;-->
-<!--   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<!-- Jquery -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
 <!-- Popper -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -26,8 +26,6 @@
 <!-- Bootstrap LEAVE AT BOTTOM per Bootstrap docs-->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-   <!-- Should it be link or script tag like above? -->
-   <!--   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
 
 </head>
 <body>
@@ -51,9 +49,9 @@
          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <!-- If no selection then all categories will be searched -->
 <!--            <li><a class="dropdown-item" name="all" href="https://www.googleapis.com/books/v1/volumes?q=">All Categories</a></li>-->
-            <li><a class="dropdown-item" name="history" href="https://www.googleapis.com/books/v1/volumes?q=subject:history">History</a></li>
+            <li><a class="dropdown-item" name="history" href="#">History</a></li>
             <li><a class="dropdown-item" name ="sports" href="#">Sports</a></li>
-            <li><a class="dropdown-item" name="Fiction" href="#">Fiction</a></li>
+            <li><a class="dropdown-item" name="fiction" href="#">Fiction</a></li>
             <li><a class="dropdown-item" name = "technology" href="#">Technology</a></li>
          </ul>
       </div>

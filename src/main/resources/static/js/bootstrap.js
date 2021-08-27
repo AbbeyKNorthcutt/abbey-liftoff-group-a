@@ -59,44 +59,49 @@ function populateDropdown(){
 populateDropdown();
 
 // Finds value of dropdown menu
-function dropdownValue() {
-    $(document).ready(function(){
-      $('#fldCategory UL LI A').click(function (e) {
-        var sVal = e.currentTarget.text;
-        $('#fldCategory BUTTON').html(sVal + ' <span class="caret"></span>');
-        console.log(sVal);
-      });
-    });
-}
+$(document).ready(function(){
 
+  $('#fldCategory UL LI A').click(function (e) {
+    var sVal = e.currentTarget.text;
+    $('#fldCategory BUTTON').html(sVal + ' <span class="caret"></span>');
+		$(this).parents('.dropdown').find('.dropdown-toggle').html(sVal+' <span class="caret"></span>');
+    alert(sVal);
+		let activeMenu = [];
+		//Attempting to push value selected into the empty array to be compared to the API data
+		activeMenu.push ({
+        sVal: $(this).val()
+		});
+		// uri to get the history subject
+  });
+});
 dropdownValue();
 
 // TODO: Function to retrieve the category the user selected NOT WORKING YET
-function searchByCategory() {
-
-	// Declare empty array to hold the active dropdown value
-			let dropdownChoice = [];
-
-	// Check for active value in dropdown TODO: Need to figure out how to write this without options and select since our dropdown uses ul and li
-			let menu = document.getElementsByClassName("caret");
-			let activeValue = menu.options[menu.selectedIndex].value;// get selected option value
-			let text = menu.options[menu.selectedIndex].text;
-
-	// Push active value to the caret array
-			dropdownChoice.push(text);
-
-		// Fetch the api loop through the categories to find the data that matches
-	// volumeInfo.categories[]
-	        fetch("https://www.googleapis.com/books/v1/volumes?q=" + document.getElementById("menu").value)
-	         .then(a =>a.json())
-             .then(response =>{
-                    for(let i=0;i<response.items.length;i++) {
-                        let item = response.items[i];
-
-                 }
-             }
-
-
-			return dropdownChoice;
-
-	}
+//function searchByCategory() {
+//
+//	// Declare empty array to hold the active dropdown value
+//			let dropdownChoice = [];
+//
+//	// Check for active value in dropdown TODO: Need to figure out how to write this without options and select since our dropdown uses ul and li
+//			let menu = document.getElementsByClassName("caret");
+//			let activeValue = menu.options[menu.selectedIndex].value;// get selected option value
+//			let text = menu.options[menu.selectedIndex].text;
+//
+//	// Push active value to the caret array
+//			dropdownChoice.push(text);
+//
+//		// Fetch the api loop through the categories to find the data that matches
+//	// volumeInfo.categories[]
+//	        fetch("https://www.googleapis.com/books/v1/volumes?q=" + document.getElementById("menu").value)
+//	         .then(a =>a.json())
+//             .then(response =>{
+//                    for(let i=0;i<response.items.length;i++) {
+//                        let item = response.items[i];
+//
+//                 }
+//             }
+//
+//
+//			return dropdownChoice;
+//
+//	}
