@@ -26,6 +26,18 @@ function searchTermStorage() {
                  for(let i=0;i<response.items.length;i++) {
                     let item = response.items[i];
 
+                    bookCount++;
+                    document.getElementById("list-output").innerHTML +=
+                    "<div id='list'>"+
+                            "<br"+"<b><a href='/book'> <img src=" + item.volumeInfo.imageLinks.thumbnail + "</a>" + "<br>"+
+                            "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
+                            "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
+                            "<b>Published Date: </b>" + item.volumeInfo.publishedDate + "<br>" +
+                            "<b>Description: </b>" + item.volumeInfo.description.slice(0, 200) +                              "..." + "<br>"
+                            +"</div>"+"<br>";
+                            document.getElementById("searchResultNumber").innerHTML = "Search Results: " + bookCount;
+=======
+
                     // TODO: Compare the book item's subject to the category that the user selected (see searchByCategory below)
 //                    if (item.volumeInfo.subject == searchByCategory()) {
 
@@ -40,6 +52,7 @@ function searchTermStorage() {
                                 "<b>Description: </b>" + item.volumeInfo.description.slice(0, 200) +                              "..." + "<br>"
                                 +"</div>"+"<br>";
                                 document.getElementById("searchResultNumber").innerHTML = "Search Results: " + bookCount;
+
                  }
 //                 }
 
