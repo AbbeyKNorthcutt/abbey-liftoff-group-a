@@ -1,45 +1,74 @@
 
 function searchTermStorage() {
 
-      let input = document.getElementById("bookInput").value;
+   let input = document.getElementById("bookInput").value;
 
-      localStorage.setItem("searchTerm", input);
+   localStorage.setItem("searchTerm", input);
 
- }
+}
 
- function categorySelectedStorage() {
-      let menuSelection = document.getElementById("caret").value;
+function bookSelectionStorage(bookSelection) {
 
-      localStorage.setItem("categorySelected", span);
- }
+    let input = bookSelection.id;
 
- function search() {
-      let bookCount = 0;
+    localStorage.setItem("storedBook", input);
 
-      fetch("https://www.googleapis.com/books/v1/volumes?q=intitle:" + localStorage.getItem("searchTerm") +"&maxResults=40&startIndex=0")
-              .then(a =>a.json())
-              .then(response =>{
+}
 
-      // fetch("https://www.googleapis.com/books/v1/volumes?q=" + document.getElementById("dropdownMenuButton1").value + document.getElementById("bookInput").value)
+//function categorySelectedStorage() {
+  // let menuSelection = document.getElementById("caret").value;
+
+   //localStorage.setItem("categorySelected", menuSelection);
+//}
+
+function search() {
+   let bookCount = 0;
+
+   fetch("https://www.googleapis.com/books/v1/volumes?q=intitle:" + localStorage.getItem("searchTerm") + "&maxResults=40&startIndex=0")
+      .then(a => a.json())
+      .then(response => {
+
+         // fetch("https://www.googleapis.com/books/v1/volumes?q=" + document.getElementById("dropdownMenuButton1").value + document.getElementById("bookInput").value)
 
 
-                 for(let i=0;i<response.items.length;i++) {
-                    let item = response.items[i];
+         for (let i = 0; i < response.items.length; i++) {
+            let item = response.items[i];
+            let isbn = item.volumeInfo.industryIdentifiers[1].identifier;
+            console.log(isbn);
 
-                    bookCount++;
-                    document.getElementById("list-output").innerHTML +=
-                    "<div id='list'>"+
-                            "<br"+"<b><a href='/book'> <img src=" + item.volumeInfo.imageLinks.thumbnail + "</a>" + "<br>"+
-                            "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
-                            "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
-                            "<b>Published Date: </b>" + item.volumeInfo.publishedDate + "<br>" +
-                            "<b>Description: </b>" + item.volumeInfo.description.slice(0, 200) +                              "..." + "<br>"
-                            +"</div>"+"<br>";
-                            document.getElementById("searchResultNumber").innerHTML = "Search Results: " + bookCount;
-=======
+            bookCount++;
+            document.getElementById("list-output").innerHTML +=
+               "<div id='list'>" +
+               "<br>" + "<b><a onclick='bookSelectionStorage(this)' href='/book'; id='" + isbn + "'> <img src=" + item.volumeInfo.imageLinks.thumbnail + "</a>" + "<br>" +
+               "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
+               "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
+               "<b>Published Date: </b>" + item.volumeInfo.publishedDate + "<br>" +
+               "<b>Description: </b>" + item.volumeInfo.description.slice(0, 200) + "..." + "<br>"
+               + "</div>" + "<br>";
+            document.getElementById("searchResultNumber").innerHTML = "Search Results: " + bookCount;
+         }
+      })
+}
+
+function displaySelectedBookInfo() {
+   fetch("https://www.googleapis.com/books/v1/volumes?q=isbn:" + localStorage.getItem("storedBook"))
+      .then(a => a.json())
+      .then(response => {
+
+         let item = response.items[0];
+
+         document.getElementById("bookInfo").innerHTML +=
+            "<br" + "<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>" +
+            "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
+            "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
+            "<b>Published Date: </b>" + item.volumeInfo.publishedDate + "<br>" +
+            "<b>Description: </b>" + item.volumeInfo.description + "<br>"
+            + "</div>" + "<br>";
+      })
+}
 
                     // TODO: Compare the book item's subject to the category that the user selected (see searchByCategory below)
-//                    if (item.volumeInfo.subject == searchByCategory()) {
+/*                    if (item.volumeInfo.subject == searchByCategory()) {
 
                         bookCount++;
 
@@ -75,20 +104,21 @@ populateDropdown();
 // TODO: Function to retrieve the category the user selected NOT WORKING YET
 function searchByCategory() {
 
-	// Declare empty array to hold the active dropdown value
-			let dropdownChoice = [];
+   // Declare empty array to hold the active dropdown value
+         let dropdownChoice = [];
 
-	// Check for active value in dropdown
-			let menu = document.getElementsByClassName("caret");
-			let activeValue = menu.options[menu.selectedIndex].value;// get selected option value
-			let text = menu.options[menu.selectedIndex].text;
+   // Check for active value in dropdown
+         let menu = document.getElementsByClassName("caret");
+         let activeValue = menu.options[menu.selectedIndex].value;// get selected option value
+         let text = menu.options[menu.selectedIndex].text;
 
-	// Push active value to the caret array
-			dropdownChoice.push(text);
+   // Push active value to the caret array
+         dropdownChoice.push(text);
 
-		// Fetch the api loop through the categories to find the data that matches
-	// volumeInfo.categories[]
+      // Fetch the api loop through the categories to find the data that matches
+   // volumeInfo.categories[]
 
-			return dropdownChoice;
+         return dropdownChoice;
 
-	}
+   }
+*/
