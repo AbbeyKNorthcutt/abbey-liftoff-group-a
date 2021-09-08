@@ -7,7 +7,7 @@
 
    <title>Liftoff Library</title>
    <!-- Jquery  -->
-   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script type="application/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -16,14 +16,8 @@
    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 
-<!-- Jquery -->
-   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
 <!-- Popper -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-
-<!--&lt;!&ndash; Bootstrap LEAVE AT BOTTOM per Bootstrap docs&ndash;&gt;-->
-<!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
 
 
 </head>
@@ -40,9 +34,8 @@
    </header>
 
    <div class="d-flex align-content-start flex-wrap">
-      <div class="dropdown">
+      <div class="dropdown" id="fldCategory">
          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" onclick="categorySelectedStorage()">
-            <!--         All Categories-->
             <span class="caret"></span>
          </button>
          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -53,6 +46,17 @@
             <li><a class="dropdown-item" name="fiction" href="#">Fiction</a></li>
             <li><a class="dropdown-item" name = "technology" href="#">Technology</a></li>
          </ul>
+
+      <!-- Select as dropdown -->
+<!--         <select>-->
+<!--            &lt;!&ndash; If no selection then all categories will be searched &ndash;&gt;-->
+<!--            <option selected></option>-->
+<!--            <option value="all" class="dropdown-item" name="all">All Categories</option>-->
+<!--            <option value="history" class="dropdown-item" name="history">History</option>-->
+<!--            <option value="sports" class="dropdown-item" name="sports">Sports</option>-->
+<!--            <option value="fiction" class="dropdown-item" name="fiction">Fiction</option>-->
+<!--            <option value="technology" class="dropdown-item" name="technology">Technology</option>-->
+<!--         </select>-->
       </div>
 
       <div>
@@ -65,7 +69,7 @@
 </nav>
 
 <!-- Bootstrap LEAVE AT BOTTOM per Bootstrap docs-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script type="application/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
 </html>

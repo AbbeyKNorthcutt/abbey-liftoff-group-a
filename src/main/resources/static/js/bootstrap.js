@@ -88,34 +88,3 @@ $(document).ready(function(){
 //		// uri to get the history subject
   });
 });
-
-
-// TODO: Function to retrieve the category the user selected NOT WORKING YET
-//function searchByCategory() {
-//
-//	// Declare empty array to hold the active dropdown value
-//			let dropdownChoice = [];
-//
-//	// Check for active value in dropdown TODO: Need to figure out how to write this without options and select since our dropdown uses ul and li
-//			let menu = document.getElementsByClassName("caret");
-//			let activeValue = menu.options[menu.selectedIndex].value;// get selected option value
-//			let text = menu.options[menu.selectedIndex].text;
-//
-//	// Push active value to the caret array
-//			dropdownChoice.push(text);
-//
-//		// Fetch the api loop through the categories to find the data that matches
-//	// volumeInfo.categories[]
-//	        fetch("https://www.googleapis.com/books/v1/volumes?q=" + document.getElementById("menu").value)
-//	         .then(a =>a.json())
-//             .then(response =>{
-//                    for(let i=0;i<response.items.length;i++) {
-//                        let item = response.items[i];
-//
-//                 }
-//             }
-//
-//
-//			return dropdownChoice;
-//
-//	}
