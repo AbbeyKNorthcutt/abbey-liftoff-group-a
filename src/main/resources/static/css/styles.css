@@ -22,7 +22,7 @@
 
 /* Search Button */
 #search{
-		position: relative;
+	position: relative;
     float: right;
     margin-bottom: 0;
     background: green;
@@ -40,5 +40,18 @@
 	background-color: #fff;
 	border: 1px solid #ccc;
     border: 1px solid rgba(0,0,0);
+}
+
+a {
+color: black;
+}
+
+#list {
+background-color: beige;
+}
+
+#bookInfo {
+    background-color: beige;
+    color: black;
 }
 
