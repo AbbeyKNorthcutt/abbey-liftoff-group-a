@@ -1,5 +1,6 @@
 # LiftOff Library 
-## LiftOff Group Capstone Project by Oliver Wunderlich, Joseph Maize, Meera Nair, and Christina Varghese
+## LiftOff Group Capstone Project 
+### by <br>Oliver Wunderlich <br>Joseph Maize <br>Meera Nair <br>Christina Varghese
 
 ### Overview
 We will create a web application that will allow a user to create an account, login, search for a book, and check it out (removing book from inventory). The application will allow the user to return the book when they are done with it (adding the book back into inventory). The application will send a notification to the user to confirm that they have checked out a book, remind them of the due date of the book, and to confirm that the book has been returned. 
