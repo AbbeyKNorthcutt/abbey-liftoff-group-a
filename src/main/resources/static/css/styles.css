@@ -36,10 +36,19 @@
   position: relative;
 	float: right;
 	cursor: pointer;
-	height:35px;
+	height: 35px;
+	line-height: 35px
 	background-color: #fff;
 	border: 1px solid #ccc;
     border: 1px solid rgba(0,0,0);
+    -webkit-appearance: menulist-button;
+    -moz-appearance:none;
+}
+
+bookInput, search, dropdown {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 a {
