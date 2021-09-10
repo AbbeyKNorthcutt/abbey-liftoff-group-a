@@ -34,7 +34,7 @@ function search() {
          for (let i = 0; i < response.items.length; i++) {
             let item = response.items[i];
             let isbn = item.volumeInfo.industryIdentifiers[1].identifier;
-            console.log(isbn);
+            
 
             bookCount++;
             document.getElementById("list-output").innerHTML +=
