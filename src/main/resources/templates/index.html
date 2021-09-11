@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body onload="myCarousel(),myCarouselTwo()" class="container" th:style="'background: url(/image/backgroundpic.png); background-repeat: no-repeat; background-size: cover; background-size:100% 100vh;'">
-
+<body class="container" th:style="'background: url(/image/backgroundpic.png); background-repeat: repeat; background-size: cover; background-size: cover; background-size:100% 100vh;'">
 <nav th:replace="fragments :: nav"></nav>
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<br>
+<br>
+<br>
+<br>
+<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -13,32 +15,26 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <div id="overlay-image"></div>
+            <div class="overlay-image" style="background-image:url(./image/carousel1.jpg);"></div>
             <div class="carousel-container">
-                <h1>Example Headline</h1>
-                <p>asdasd, a,sdasfghf  adfhadfh,afh adsfhadfh, dollar</p>
                 <a href="#" class="btn btn-lg btn-primary">
-                    Sign up today
+                    View Book
                 </a>
             </div>
         </div>
         <div class="carousel-item">
-            <div id="overlay-image2"></div>
+            <div class="overlay-image" style="background-image:url(./image/carousel2.png);"></div>
             <div class="carousel-container">
-                <h1>Example Headline</h1>
-                <p>asdasd, a,sdasfghf</p>
                 <a href="#" class="btn btn-lg btn-primary">
-                    Sign up today
+                    View Book
                 </a>
             </div>
         </div>
         <div class="carousel-item">
-            <div id="overlay-image"></div>
+            <div class="overlay-image" style="background-image:url(./image/carousel3.jpg);"></div>
             <div class="carousel-container">
-                <h1>Example Headline</h1>
-                <p>asdasd, a,sdasfghf</p>
                 <a href="#" class="btn btn-lg btn-primary">
-                    Sign up today
+                    View Book
                 </a>
             </div>
         </div>

@@ -1,5 +1,3 @@
-
-
 function searchTermStorage() {
 
     let input = document.getElementById("bookInput").value;
@@ -37,36 +35,3 @@ function search() {
 
 }
 
-function myCarousel(){
-    fetch("https://www.googleapis.com/books/v1/volumes?q=harry+potter+intitle:")
-        .then(a=>a.json())
-        .then(response =>{
-            for(let i=0;i<3;i++) {
-                let item = response.items[i];
-                document.getElementById("overlay-image").innerHTML =
-                    "<div>"+
-                    "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>";
-
-                document.getElementsByClassName("carousel-container").innerHTML =
-                    "<h1>" + item.volumeInfo.title + "</h1>"
-
-            }
-        })
-
-
-}
-
-function myCarouselTwo(){
-    fetch("https://www.googleapis.com/books/v1/volumes?q=bob+intitle:")
-        .then(a=>a.json())
-        .then(response =>{
-            for(let i=0;i<3;i++) {
-                let item = response.items[i];
-                document.getElementById("overlay-image2").innerHTML =
-                    "<div>"+
-                    "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>";
-            }
-        })
-
-
-}
