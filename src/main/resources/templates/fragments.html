@@ -16,8 +16,10 @@
    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 
+
    <!-- Jquery  -->
    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
 
    <!-- Popper -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -61,6 +63,35 @@
             </div>
          </div>
       </nav>
+</nav>
+
+<nav th:fragment="nav">
+   <header th:fragment="header">
+      <div class="header"><a href="libImage.png"><img src="img\libImage.png"></a><h1>LiftOff Library</h1>
+      </div>
+
+
+   </header>
+   <div class="d-flex align-content-start flex-wrap">
+      <div id="dropdown">
+         <select onchange="myFunction(this)" class="form-control" style=" height:35px;" id="sel1">
+            <option>All</option>
+            <option>Title</option>
+            <option>Author</option>
+            <option>Publisher</option>
+            <option>Categories</option>
+         </select>
+
+         <p id="demo"></p>
+      </div>
+      <div>
+         <button id="search" class = btn btn-primary onclick="searchTermStorage();window.location.href = '/search';">Search</button>
+         <input type="search" id="bookInput" placeholder="Search Books!...">
+      </div><br>
+   </div>
+   <br>
+   <br>
+
 </nav>
 
 </body>
