@@ -57,41 +57,12 @@
                   </li>
                </ul>
 
-                  <input class="form-control me-2" type="search" id="bookInput" placeholder="Search">
-                  <button type="submit" class="btn btn-outline-success" onclick="searchTermStorage();window.location.href='/search';">Search</button>
+               <input class="form-control me-2" type="search" id="bookInput" placeholder="Search">
+               <button type="submit" class="btn btn-outline-success" onclick="searchTermStorage();window.location.href='/search';">Search</button>
 
             </div>
          </div>
       </nav>
-</nav>
-
-<nav th:fragment="nav">
-   <header th:fragment="header">
-      <div class="header"><a href="libImage.png"><img src="img\libImage.png"></a><h1>LiftOff Library</h1>
-      </div>
-
-
-   </header>
-   <div class="d-flex align-content-start flex-wrap">
-      <div id="dropdown">
-         <select onchange="myFunction(this)" class="form-control" style=" height:35px;" id="sel1">
-            <option>All</option>
-            <option>Title</option>
-            <option>Author</option>
-            <option>Publisher</option>
-            <option>Categories</option>
-         </select>
-
-         <p id="demo"></p>
-      </div>
-      <div>
-         <button id="search" class = btn btn-primary onclick="searchTermStorage();window.location.href = '/search';">Search</button>
-         <input type="search" id="bookInput" placeholder="Search Books!...">
-      </div><br>
-   </div>
-   <br>
-   <br>
-
 </nav>
 
 </body>
