@@ -1,3 +1,11 @@
+// Code to activate the search when enter is pressed
+var input = document.getElementById("bookInput");
+bookInput.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("search").click();
+  }
+});
 
 function searchTermStorage() {
 
