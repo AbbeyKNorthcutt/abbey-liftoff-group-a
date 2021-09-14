@@ -42,30 +42,26 @@
 
 
    </header>
-
    <div class="d-flex align-content-start flex-wrap">
-      <div class="dropdown">
-         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <!--         All Categories-->
-            <span class="caret"></span>
-         </button>
-         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <!-- If no selection then all categories will be searched -->
-            <li><a class="dropdown-item" name="all" href="#">All Categories</a></li>
-            <li><a class="dropdown-item" name="history" href="#">History</a></li>
-            <li><a class="dropdown-item" name ="sports" href="#">Sports</a></li>
-            <li><a class="dropdown-item" name="nonFiction" href="#">Non Fiction</a></li>
-            <li><a class="dropdown-item" name = "technology" href="#">Technology</a></li>
-         </ul>
-      </div>
+      <div id="dropdown">
+         <select onchange="myFunction(this)" class="form-control" style=" height:35px;" id="sel1">
+            <option>All</option>
+            <option>Title</option>
+            <option>Author</option>
+            <option>Publisher</option>
+            <option>Categories</option>
+         </select>
 
+         <p id="demo"></p>
+      </div>
       <div>
-         <button type="submit" id="search" class = btn btn-primary onclick="searchTermStorage();window.location.href = '/search';">Search</button>
+         <button id="search" class = btn btn-primary onclick="searchTermStorage();window.location.href = '/search';">Search</button>
          <input type="search" id="bookInput" placeholder="Search Books!...">
       </div><br>
    </div>
    <br>
    <br>
+
 </nav>
 
 </body>

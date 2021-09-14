@@ -22,7 +22,7 @@
 
 /* Search Button */
 #search{
-		position: relative;
+	position: relative;
     float: right;
     margin-bottom: 0;
     background: green;
@@ -32,15 +32,27 @@
 }
 
 /* Dropdown Menu */
-.dropdown {
+#dropdown {
   position: relative;
 	float: right;
 	cursor: pointer;
-	text-transform: uppercase;
-	height:35px;
+	height: 35px;
 	background-color: #fff;
 	border: 1px solid #ccc;
     border: 1px solid rgba(0,0,0);
+    -webkit-appearance: menulist-button;
+    -moz-appearance:none;
+}
+
+.d-flex align-content-start flex-wrap {
+    -webkit-appearance: menulist-button;
+       height: 35px;
+}
+
+bookInput, search, dropdown {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 a {
