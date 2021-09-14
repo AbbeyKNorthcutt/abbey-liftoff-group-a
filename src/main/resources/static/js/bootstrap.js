@@ -1,16 +1,6 @@
 function searchTermStorage() {
-
-
-function search() {
-    let bookCount = 0;
-
-    fetch("https://www.googleapis.com/books/v1/volumes?q=intitle:" + localStorage.getItem("searchTerm")+"&maxResults=40&startIndex=0")
-        .then(a =>a.json())
-        .then(response =>{
-
-   let input = document.getElementById("bookInput").value;
-   localStorage.setItem("searchTerm", input);
-
+    let input = document.getElementById("bookInput").value;
+    localStorage.setItem("searchTerm", input);
 }
 
 function bookSelectionStorage(bookSelection) {
@@ -45,6 +35,7 @@ function mapSelectOptionToGoogleAPI(selectedOption) {
        return '';
     }
  }
+
 function search() {
     let bookCount = 0;
     let selOpt = localStorage.getItem("selectedOption");
