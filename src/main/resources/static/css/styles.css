@@ -1,7 +1,7 @@
 
 /* Search Bar */
 #bookInput{
-
+width: 220px;
 }
 
 /* Search Button */
@@ -40,6 +40,7 @@
 
 
 }
+
 .navbar-brand img {
     float: left;
     width: 85px;
@@ -54,4 +55,6 @@
 body{
     height: 100%;
 }
+
+
 
