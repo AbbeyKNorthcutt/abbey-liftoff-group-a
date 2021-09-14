@@ -1,70 +1,56 @@
-.header img {
-    float: left;
-    width: 90px;
-    height: 90px;
-    background: #555;
-}
-.header h1 {
-    position: relative;
-    top: 10px;
-    left: 10px;
-}
-.d-flex {
-	float: right;
-}
 
 /* Search Bar */
 #bookInput{
-    float: right;
-    margin-bottom: 0;
-    height:35px;
+width: 220px;
 }
 
 /* Search Button */
 #search{
-	position: relative;
-    float: right;
-    margin-bottom: 0;
-    background: green;
-    height:35px;
-    width:68px;
-    text-align: center;
+
 }
 
 /* Dropdown Menu */
-#dropdown {
-  position: relative;
-	float: right;
-	cursor: pointer;
-	height: 35px;
-	background-color: #fff;
-	border: 1px solid #ccc;
-    border: 1px solid rgba(0,0,0);
-    -webkit-appearance: menulist-button;
-    -moz-appearance:none;
+.dropdown {
+
 }
 
-.d-flex align-content-start flex-wrap {
-    -webkit-appearance: menulist-button;
-       height: 35px;
+.carousel-item{
+    height: 40rem;
+    background:#000;
+    color:white;
+    position: relative;
+}
+.carousel-container {
+    position: absolute;
+    bottom: 0;
+    left: 950px;
+    right:0;
+    padding-bottom: 40px;
 }
 
-bookInput, search, dropdown {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+.overlay-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+
+
 }
 
-a {
-color: black;
+.navbar-brand img {
+    float: left;
+    width: 85px;
+    height: 70px;
 }
 
-#list {
-background-color: beige;
+.gradient{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,107,1) 67%, rgba(0,212,255,1) 100%);
 }
 
-#bookInfo {
-    background-color: beige;
-    color: black;
+body{
+    height: 100%;
 }
-
