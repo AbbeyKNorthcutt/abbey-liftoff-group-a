@@ -56,10 +56,10 @@
                      </ul>
                   </li>
                </ul>
-
-               <input class="form-control me-2" type="search" id="bookInput" placeholder="Search">
-               <button type="submit" class="btn btn-outline-success" onclick="searchTermStorage();window.location.href='/search';">Search</button>
-
+               <form name="searchBarWithButton" method="post" action="/search">
+                  <input class="form-control me-2" type="search" id="bookInput" placeholder="Search">
+                  <button type="submit" class="btn btn-outline-success" onclick="searchTermStorage();window.location.href='/search';">Search</button>
+               <form>
             </div>
          </div>
       </nav>
