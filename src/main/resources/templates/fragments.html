@@ -39,6 +39,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
+            <form name="searchBarWithButton" method="post" action="/search">
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
@@ -56,7 +57,6 @@
                      </ul>
                   </li>
                </ul>
-               <form name="searchBarWithButton" method="post" action="/search">
                   <input class="form-control me-2" type="search" id="bookInput" placeholder="Search">
                   <button type="submit" class="btn btn-outline-success" onclick="searchTermStorage();window.location.href='/search';">Search</button>
                <form>
