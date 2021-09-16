@@ -55,8 +55,10 @@
          <p id="demo"></p>
       </div>
       <div>
-         <button id="search" class = btn btn-primary onclick="searchTermStorage();window.location.href = '/search';">Search</button>
-         <input type="search" id="bookInput" placeholder="Search Books!...">
+         <form name="searchBarWithButton" method="post" action="/search">
+            <button type="submit" id="search" class = btn btn-primary onclick="searchTermStorage();window.location.href = '/search';"> Search </button>
+            <input type="search" id="bookInput" placeholder="Search Books!...">
+         </form>
       </div><br>
    </div>
    <br>

@@ -1,11 +1,25 @@
 // Code to activate the search when enter is pressed
-var input = document.getElementById("bookInput");
-bookInput.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-   event.preventDefault();
-   document.getElementById("search").click();
-  }
-});
+//var searchButton = document.getElementById("search");
+//searchButton.addEventListener("keyup", function(event) {
+//  if (event.keyCode === 13) {
+//   event.preventDefault();
+//
+//   document.getElementById("search").addEventListener("click", function(event) {
+//    searchTermStorage();
+//    window.location.href = '/search';
+//   });
+//  }
+//});
+//
+//   }
+
+//var searchButton = document.getElementById("search");
+//searchButton.addEventListener("keyup", function(event) {
+//  if (event.keyCode === 13) {
+//   event.preventDefault();
+//   document.getElementById("search").click();
+//  }
+//});
 
 function searchTermStorage() {
 
