@@ -33,20 +33,33 @@
 </head>
 <body>
 <nav th:fragment="nav">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-         <div class="container">
-            <a class="navbar-brand" href="#"><img src="img\libImage.png"><h1>LiftOff Library</h1></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-            </button>
-            <form name="searchBarWithButton" method="post" action="/search">
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="/">Home</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+         <a class="navbar-brand" href="#"><img src="img\libImage.png">LiftOff</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Home</a>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <li><a class="dropdown-item" href="#">All</a></li>
+                     <li><a class="dropdown-item" href="#">Title</a></li>
+                     <li><hr class="dropdown-divider"></li>
+                     <li><a class="dropdown-item" href="#">Author</a></li>
+                  </ul>
+               </li>
+            </ul>
+
+            <input class="form-control me-2" type="search" id="bookInput" placeholder="Search">
+            <button type="submit" class="btn btn-outline-success" onclick="searchTermStorage();window.location.href='/search';">Search</button>
+
 
                      </a>
                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -61,15 +74,11 @@
                   <button type="submit" class="btn btn-outline-success" onclick="searchTermStorage();window.location.href='/search';">Search</button>
                </form>
             </div>
+=======
+>>>>>>> 2a4986bcfbd990aedd01624e9035fc1743ac0eb0
          </div>
-      </nav>
+      </div>
+   </nav>
 </nav>
 
 </body>
-
-
-
-
-
-
-</html>
