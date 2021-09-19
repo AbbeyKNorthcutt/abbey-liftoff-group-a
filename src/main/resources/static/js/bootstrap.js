@@ -1,8 +1,6 @@
 function searchTermStorage() {
-
-   let input = document.getElementById("bookInput").value;
-   localStorage.setItem("searchTerm", input);
-
+    let input = document.getElementById("bookInput").value;
+    localStorage.setItem("searchTerm", input);
 }
 
 function bookSelectionStorage(bookSelection) {
@@ -12,18 +10,18 @@ function bookSelectionStorage(bookSelection) {
     localStorage.setItem("storedBook", input);
 
 }
+function categorySelectedStorage() {
+    let selCategory = document.getElementById("sel1").value;
+    console.log(selCategory);
+      localStorage.setItem("selCategory", selCategory);
+    }
+
 
 //function categorySelectedStorage() {
   // let menuSelection = document.getElementById("caret").value;
 
    //localStorage.setItem("categorySelected", menuSelection);
 //}
-
-function categorySelectedStorage() {
-   let selCategory = document.getElementById("sel1").value;
-   console.log(selCategory);
-     localStorage.setItem("selCategory", selCategory);
-   }
 
 function showMore(elem){
     let id = elem.id;
@@ -38,12 +36,11 @@ function mapSelectOptionToGoogleAPI(selectedOption) {
     return 'inauthor';
     }else if(selectedOption === 'Publisher'){
          return 'inpublisher';
-    }
-
-    else {
+    }else {
        return '';
     }
  }
+
 function search() {
     let bookCount = 0;
     let selOpt = localStorage.getItem("selCategory");
@@ -65,7 +62,7 @@ function search() {
                 if(descDisplayLen > 200){
                     descDisplayLen = 200;
                     descDisplay = item.volumeInfo.description.slice(0, descDisplayLen);
-                    descDisplay = descDisplay + "<a style='color:red' onclick='showMore(this)'; id='" + i + "'> Read more</a>";
+                    descDisplay = descDisplay + "<a class='ellipsis' style='color:red' onclick='showMore(this)'; id='" + i + "'> ...</a>";
                 }
                 else if(descDisplay==''||descDisplay == null){
                                 descDisplay ="No Description is available";
@@ -90,25 +87,24 @@ function search() {
                                                 }
                 bookCount++;
                 document.getElementById("list-output").innerHTML +=
-                "<div class ='row'>"+
-                    "<div class='column' id='book-partial-desc-" + i + "'>"+
+                    "<div id='book-partial-desc-" + i + "'>"+
                     "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                     "<b>Author: </b>" + disAuthor + "<br>" +
                     "<b>Publisher: </b>" + disPublisher + "<br>" +
                     "<b>Categories: </b>" + desCategory + "<br>" +
                     "<b>Description: </b>" + descDisplay + "<br>"
-                    +"</div>"+"</div>"+"<br>" +
-                    "<div class ='row'>"+
-                    "<div class='column' id='book-full-desc-" + i + "' hidden>"+
+                    +"</div>"+"<br>" +
+                    "<div id='book-full-desc-" + i + "' hidden>"+
                     "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                     "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
                     "<b>Publisher: </b>" + item.volumeInfo.publisher + "<br>" +
                     "<b>Categories: </b>" + item.volumeInfo.categories + "<br>" +
                     "<b>Description: </b>" + descFull + "<br>"
-                    +"</div>"+"</div>"+"<br>";
+                    +"</div>"+"<br>";
                 document.getElementById("searchResultNumber").innerHTML = "Search Results: " + bookCount;
             }
         })
 }
+
