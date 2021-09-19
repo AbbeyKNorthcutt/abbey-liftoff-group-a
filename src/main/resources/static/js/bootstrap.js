@@ -62,7 +62,7 @@ function search() {
                 if(descDisplayLen > 200){
                     descDisplayLen = 200;
                     descDisplay = item.volumeInfo.description.slice(0, descDisplayLen);
-                    descDisplay = descDisplay + "<a class='ellipsis' style='color:red' onclick='showMore(this)'; id='" + i + "'> ...</a>";
+                    descDisplay = descDisplay + "<a class='ellipsis' style='color:red' onclick='showMore(this)'; id='" + i + "'> Read more</a>";
                 }
                 else if(descDisplay==''||descDisplay == null){
                                 descDisplay ="No Description is available";
