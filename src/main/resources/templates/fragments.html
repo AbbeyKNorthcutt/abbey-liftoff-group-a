@@ -21,6 +21,7 @@
    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
 
+
    <!-- Popper -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
@@ -46,20 +47,22 @@
                   <a class="nav-link active" aria-current="page" href="/">Home</a>
                </li>
                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <button class="btn btn-secondary btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <span id="selectedDropdown" onclick="displayDropdownSelection()">Filter Search</span><span class="caret"></span>
+                  </button>
 
-                  </a>
+
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <li><a class="dropdown-item" href="#">All</a></li>
-                     <li><a class="dropdown-item" href="#">Title</a></li>
-                     <li><hr class="dropdown-divider"></li>
-                     <li><a class="dropdown-item" href="#">Author</a></li>
+                     <li ><a onclick="displayDropdownSelection()" class="dropdown-item" href="#">All</a></li>
+                     <li><a onclick="displayDropdownSelection()" class="dropdown-item" href="#">Title</a></li>
+                     <hr class="dropdown-divider">
+                     <li><a onclick="displayDropdownSelection()" class="dropdown-item" href="#">Author</a></li>
                   </ul>
                </li>
             </ul>
 
             <input class="form-control me-2" type="search" id="bookInput" placeholder="Search">
-            <button type="submit" class="btn btn-outline-success" onclick="searchTermStorage();window.location.href='/search';">Search</button>
+            <button type="submit" class="btn btn-outline-success" onclick="dropdownSelectionStorage();searchTermStorage();window.location.href='/search';">Search</button>
 
          </form>
          </div>

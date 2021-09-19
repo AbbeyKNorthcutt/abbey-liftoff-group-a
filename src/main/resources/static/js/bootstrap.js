@@ -4,11 +4,20 @@ function searchTermStorage() {
 }
 
 function bookSelectionStorage(bookSelection) {
-
     let input = bookSelection.id;
-
     localStorage.setItem("storedBook", input);
 
+}
+
+function dropdownSelectionStorage() {
+    let dropdownInput = document.getElementById("selectedDropdown").innerHTML;
+    localStorage.setItem("storedDropdownSelection", dropdownInput);
+}
+
+function displayDropdownSelection() {
+          $('.dropdown-menu a').click(function(){
+          $('#selectedDropdown').text($(this).text());
+          });
 }
 
 
@@ -25,11 +34,11 @@ function showMore(elem){
 }
 
 function mapSelectOptionToGoogleAPI(selectedOption) {
-    if(selectedOption === 'Title'){
+    if(localStorage.getItem("storedDropdownSelection") === 'Title'){
     return 'intitle';
-    }else if(selectedOption === 'Author'){
+    }else if(localStorage.getItem("storedDropdownSelection") === 'Author'){
     return 'inauthor';
-    }else if(selectedOption === 'Publisher'){
+    }else if(localStorage.getItem("storedDropdownSelection") === 'Publisher'){
          return 'inpublisher';
     }else {
        return '';
@@ -38,7 +47,7 @@ function mapSelectOptionToGoogleAPI(selectedOption) {
 
 function search() {
     let bookCount = 0;
-    let selOpt = localStorage.getItem("selectedOption");
+    let selOpt = localStorage.getItem("storedDropdownSelection");
     console.log("Inside search method :value of selected dropdown is : "+selOpt);
     let selectCategory = mapSelectOptionToGoogleAPI(selOpt);
     if(selectCategory != ''){
@@ -80,10 +89,17 @@ function search() {
                 if(disAuthor==''||disAuthor==null||disAuthor=='undefined'){
                                                 disAuthor="Author details not available";
                                                 }
+
+                let disThumbnail = item.volumeInfo.imageLinks;
+                if(disThumbnail === ''|| typeof disThumbnail === null || typeof disThumbnail ===                  "undefined") {
+                disThumbnail = "Image not available";
+                } else {
+                    disThumbnail = "<img src=" + item.volumeInfo.imageLinks.thumbnail + ">";
+                }
                 bookCount++;
                 document.getElementById("list-output").innerHTML +=
                     "<div id='book-partial-desc-" + i + "'>"+
-                    "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>"+
+                    "<br"+"<b>" + disThumbnail + "<br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                     "<b>Author: </b>" + disAuthor + "<br>" +
                     "<b>Publisher: </b>" + disPublisher + "<br>" +
@@ -91,7 +107,7 @@ function search() {
                     "<b>Description: </b>" + descDisplay + "<br>"
                     +"</div>"+"<br>" +
                     "<div id='book-full-desc-" + i + "' hidden>"+
-                    "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>"+
+                    "<br"+"<b>" + disThumbnail + "<br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                     "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
                     "<b>Publisher: </b>" + item.volumeInfo.publisher + "<br>" +
