@@ -4,14 +4,10 @@
 width: 220px;
 }
 
-/* Search Button */
-#search{
-
-}
 
 /* Dropdown Menu */
 .dropdown {
-      position: relative;
+        position: relative;
      	float: right;
      	cursor: pointer;
      	text-transform: uppercase;
