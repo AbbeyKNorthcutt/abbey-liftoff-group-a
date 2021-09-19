@@ -1,6 +1,8 @@
 function searchTermStorage() {
-    let input = document.getElementById("bookInput").value;
-    localStorage.setItem("searchTerm", input);
+
+   let input = document.getElementById("bookInput").value;
+   localStorage.setItem("searchTerm", input);
+
 }
 
 function bookSelectionStorage(bookSelection) {
@@ -11,12 +13,17 @@ function bookSelectionStorage(bookSelection) {
 
 }
 
-
 //function categorySelectedStorage() {
   // let menuSelection = document.getElementById("caret").value;
 
    //localStorage.setItem("categorySelected", menuSelection);
 //}
+
+function categorySelectedStorage() {
+   let selCategory = document.getElementById("sel1").value;
+   console.log(selCategory);
+     localStorage.setItem("selCategory", selCategory);
+   }
 
 function showMore(elem){
     let id = elem.id;
@@ -31,14 +38,15 @@ function mapSelectOptionToGoogleAPI(selectedOption) {
     return 'inauthor';
     }else if(selectedOption === 'Publisher'){
          return 'inpublisher';
-    }else {
+    }
+
+    else {
        return '';
     }
  }
-
 function search() {
     let bookCount = 0;
-    let selOpt = localStorage.getItem("selectedOption");
+    let selOpt = localStorage.getItem("selCategory");
     console.log("Inside search method :value of selected dropdown is : "+selOpt);
     let selectCategory = mapSelectOptionToGoogleAPI(selOpt);
     if(selectCategory != ''){
@@ -48,7 +56,7 @@ function search() {
     fetch("https://www.googleapis.com/books/v1/volumes?q="+ selectCategory + localStorage.getItem("searchTerm")+"&maxResults=40&startIndex=0")
         .then(a =>a.json())
         .then(response =>{
-            localStorage.removeItem("selectedOption");
+            localStorage.removeItem("selCategory");
             for(let i=0;i<response.items.length;i++) {
                 let item = response.items[i];
                 let descDisplayLen = item.volumeInfo.description != undefined ? item.volumeInfo.description.length : 0;
@@ -57,7 +65,7 @@ function search() {
                 if(descDisplayLen > 200){
                     descDisplayLen = 200;
                     descDisplay = item.volumeInfo.description.slice(0, descDisplayLen);
-                    descDisplay = descDisplay + "<a style='color:red' onclick='showMore(this)'; id='" + i + "'> ...</a>";
+                    descDisplay = descDisplay + "<a style='color:red' onclick='showMore(this)'; id='" + i + "'> Read more</a>";
                 }
                 else if(descDisplay==''||descDisplay == null){
                                 descDisplay ="No Description is available";
@@ -82,24 +90,25 @@ function search() {
                                                 }
                 bookCount++;
                 document.getElementById("list-output").innerHTML +=
-                    "<div id='book-partial-desc-" + i + "'>"+
+                "<div class ='row'>"+
+                    "<div class='column' id='book-partial-desc-" + i + "'>"+
                     "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                     "<b>Author: </b>" + disAuthor + "<br>" +
                     "<b>Publisher: </b>" + disPublisher + "<br>" +
                     "<b>Categories: </b>" + desCategory + "<br>" +
                     "<b>Description: </b>" + descDisplay + "<br>"
-                    +"</div>"+"<br>" +
-                    "<div id='book-full-desc-" + i + "' hidden>"+
+                    +"</div>"+"</div>"+"<br>" +
+                    "<div class ='row'>"+
+                    "<div class='column' id='book-full-desc-" + i + "' hidden>"+
                     "<br"+"<b><img src=" + item.volumeInfo.imageLinks.thumbnail + "<br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                     "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
                     "<b>Publisher: </b>" + item.volumeInfo.publisher + "<br>" +
                     "<b>Categories: </b>" + item.volumeInfo.categories + "<br>" +
                     "<b>Description: </b>" + descFull + "<br>"
-                    +"</div>"+"<br>";
+                    +"</div>"+"</div>"+"<br>";
                 document.getElementById("searchResultNumber").innerHTML = "Search Results: " + bookCount;
             }
         })
 }
-

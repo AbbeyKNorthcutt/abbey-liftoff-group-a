@@ -45,27 +45,27 @@
                <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/">Home</a>
                </li>
-               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               <div class="d-flex align-content-start flex-wrap">
+                  <div id="dropdown" onclick="categorySelectedStorage();">
+                     <select onchange="myFunction(this)" class="form-control" style=" height:35px;" id="sel1">
+                        <option>All</option>
+                        <option>Title</option>
+                        <option>Author</option>
+                        <option>Publisher</option>
+                     </select>
 
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <li><a class="dropdown-item" href="#">All</a></li>
-                     <li><a class="dropdown-item" href="#">Title</a></li>
-                     <li><hr class="dropdown-divider"></li>
-                     <li><a class="dropdown-item" href="#">Author</a></li>
-                  </ul>
-               </li>
+                     <p id="demo"></p>
+                  </div>
+               </div>
             </ul>
 
             <input class="form-control me-2" type="search" id="bookInput" placeholder="Search">
             <button type="submit" class="btn btn-outline-success" onclick="searchTermStorage();window.location.href='/search';">Search</button>
-
+         </div>
          </form>
          </div>
 
-      </div>
-      </div>
+
    </nav>
 </nav>
 
