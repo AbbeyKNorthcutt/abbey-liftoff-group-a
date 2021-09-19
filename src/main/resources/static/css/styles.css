@@ -11,8 +11,16 @@ width: 220px;
 
 /* Dropdown Menu */
 .dropdown {
-
-}
+      position: relative;
+     	float: right;
+     	cursor: pointer;
+     	text-transform: uppercase;
+     	height:35px;
+     	width:68px;
+     	background-color: #fff;
+     	border: 1px solid #ccc;
+        border: 1px solid rgba(0,0,0);
+    }
 
 #results {
    margin: auto;

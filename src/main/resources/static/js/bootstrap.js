@@ -8,6 +8,11 @@ function bookSelectionStorage(bookSelection) {
     localStorage.setItem("storedBook", input);
 
 }
+function categorySelectedStorage() {
+    let selCategory = document.getElementById("sel1").value;
+    console.log(selCategory);
+      localStorage.setItem("selCategory", selCategory);
+    }
 
 function dropdownSelectionStorage() {
     let dropdownInput = document.getElementById("selectedDropdown").innerHTML;
@@ -47,7 +52,9 @@ function mapSelectOptionToGoogleAPI(selectedOption) {
 
 function search() {
     let bookCount = 0;
+
     let selOpt = localStorage.getItem("storedDropdownSelection");
+
     console.log("Inside search method :value of selected dropdown is : "+selOpt);
     let selectCategory = mapSelectOptionToGoogleAPI(selOpt);
     if(selectCategory != ''){
@@ -57,7 +64,7 @@ function search() {
     fetch("https://www.googleapis.com/books/v1/volumes?q="+ selectCategory + localStorage.getItem("searchTerm")+"&maxResults=40&startIndex=0")
         .then(a =>a.json())
         .then(response =>{
-            localStorage.removeItem("selectedOption");
+            localStorage.removeItem("selCategory");
             for(let i=0;i<response.items.length;i++) {
                 let item = response.items[i];
                 let descDisplayLen = item.volumeInfo.description != undefined ? item.volumeInfo.description.length : 0;
@@ -66,7 +73,7 @@ function search() {
                 if(descDisplayLen > 200){
                     descDisplayLen = 200;
                     descDisplay = item.volumeInfo.description.slice(0, descDisplayLen);
-                    descDisplay = descDisplay + "<a class='ellipsis' style='color:red' onclick='showMore(this)'; id='" + i + "'> ...</a>";
+                    descDisplay = descDisplay + "<a class='ellipsis' style='color:red' onclick='showMore(this)'; id='" + i + "'> Read more</a>";
                 }
                 else if(descDisplay==''||descDisplay == null){
                                 descDisplay ="No Description is available";
