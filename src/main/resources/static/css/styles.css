@@ -60,3 +60,7 @@ width: 220px;
 body{
     height: 100%;
 }
+
+.ellipsis {
+    cursor: pointer;
+}
