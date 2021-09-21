@@ -6,7 +6,7 @@ width: 220px;
 
 
 /* Dropdown Menu */
-.dropdown {
+/*.dropdown {
         position: relative;
      	float: right;
      	cursor: pointer;
@@ -17,7 +17,7 @@ width: 220px;
      	border: 1px solid #ccc;
         border: 1px solid rgba(0,0,0);
     }
-
+*/
 #results {
    margin: auto;
    position:relative;
