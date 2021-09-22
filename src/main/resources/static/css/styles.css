@@ -4,6 +4,11 @@
 width: 220px;
 }
 
+#bookInfo, #results {
+background-color: #F0F8FF;
+padding: 50px;
+}
+
 
 /* Dropdown Menu */
 /*.dropdown {
