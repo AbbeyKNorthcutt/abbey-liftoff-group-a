@@ -52,10 +52,7 @@ function mapSelectOptionToGoogleAPI(selectedOption) {
 
 function search() {
     let bookCount = 0;
-
     let selOpt = localStorage.getItem("storedDropdownSelection");
-
-    console.log("Inside search method :value of selected dropdown is : "+selOpt);
     let selectCategory = mapSelectOptionToGoogleAPI(selOpt);
     if(selectCategory != ''){
     selectCategory += ":";
@@ -67,6 +64,7 @@ function search() {
             localStorage.removeItem("selCategory");
             for(let i=0;i<response.items.length;i++) {
                 let item = response.items[i];
+                let isbn = item.volumeInfo.industryIdentifiers[1].identifier;
                 let descDisplayLen = item.volumeInfo.description != undefined ? item.volumeInfo.description.length : 0;
                 let descFull = item.volumeInfo.description;
                 let descDisplay = '';
@@ -106,23 +104,111 @@ function search() {
                 bookCount++;
                 document.getElementById("list-output").innerHTML +=
                     "<div id='book-partial-desc-" + i + "'>"+
-                    "<br"+"<b>" + disThumbnail + "<br>"+
+                    "<br>"+ "<b><a onclick='bookSelectionStorage(this)' href='/book'; id='" + isbn + "'>" + disThumbnail + "</b>" + "<br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
-                    "<b>Author: </b>" + disAuthor + "<br>" +
+                    "<b>Author: </b>>" + disAuthor + "<br>" +
                     "<b>Publisher: </b>" + disPublisher + "<br>" +
                     "<b>Categories: </b>" + desCategory + "<br>" +
-                    "<b>Description: </b>" + descDisplay + "<br>"
+                    "<b>Description: </b>" + descDisplay + "</a><br>"
                     +"</div>"+"<br>" +
+
+
                     "<div id='book-full-desc-" + i + "' hidden>"+
-                    "<br"+"<b>" + disThumbnail + "<br>"+
+                    "<br"+"<b><a onclick='bookSelectionStorage(this)' href='/book'; id='" + isbn + "'>" + disThumbnail + "</b><br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                     "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
                     "<b>Publisher: </b>" + item.volumeInfo.publisher + "<br>" +
                     "<b>Categories: </b>" + item.volumeInfo.categories + "<br>" +
-                    "<b>Description: </b>" + descFull + "<br>"
+                    "<b>Description: </b>" + descFull + "</a><br>"
                     +"</div>"+"<br>";
                 document.getElementById("searchResultNumber").innerHTML = "Search Results: " + bookCount;
             }
         })
+}
+
+function displaySelectedBookInfo() {
+   fetch("https://www.googleapis.com/books/v1/volumes?q=isbn:" + localStorage.getItem("storedBook"))
+      .then(a => a.json())
+      .then(response => {
+
+         let item = response.items[0];
+
+         let desCategory=item.volumeInfo.categories;
+         if(desCategory==''||desCategory==null||desCategory=='undefined'){
+             desCategory="No Categories Details is available.";
+         }
+
+         let disPublisher=item.volumeInfo.publisher;
+         if(disPublisher==''||disPublisher==null||disPublisher=='undefined'){
+            disPublisher="Publisher details not available.";
+         }
+
+         let disAuthor=item.volumeInfo.authors;
+         if(disAuthor==''||disAuthor==null||disAuthor=='undefined'){
+            disAuthor="Author details not available.";
+         }
+
+         let disThumbnail = item.volumeInfo.imageLinks;
+         if(disThumbnail === ''|| typeof disThumbnail === null || typeof                                   disThumbnail === "undefined") {
+            disThumbnail = "Image not available.";
+         } else {
+            disThumbnail = "<img src='" + item.volumeInfo.imageLinks.thumbnail + "'>";
+         }
+
+         let disDescription = item.volumeInfo.description;
+         if (disDescription === '' || typeof disDescription === null || typeof disDescription ===          "undefined") {
+            disDescription = "Description not available.";
+         }
+
+         let disPageCount = item.volumeInfo.pageCount;
+         if (disPageCount === '' || typeof disPageCount === null || typeof disPageCount ===                "undefined") {
+            disPageCount = "Page count not available.";
+         }
+
+         let disMaturityRating = item.volumeInfo.maturityRating;
+         if (disMaturityRating === '' || typeof disMaturityRating === null || typeof                       disMaturityRating === "undefined") {
+            disMaturityRating = "Maturity rating not available.";
+         }
+
+         let disRatingsCount = item.volumeInfo.ratingsCount;
+         if (disRatingsCount === '' || typeof disRatingsCount === null || typeof disRatingsCount           === "undefined") {
+             disRatingsCount = "Ratings count not available.";
+         }
+
+         let disAverageRating = item.volumeInfo.averageRating;
+         if (disAverageRating === '' || typeof disAverageRating === null || typeof disAverageRating        === "undefined") {
+            disAverageRating = "Average rating not available.";
+         } else {
+            disAverageRating = item.volumeInfo.averageRating + " out of 5."
+         }
+
+        let disSnippet = item.searchInfo;
+        if (disSnippet === '' || typeof disSnippet === null || typeof disSnippet === "undefined") {
+            disSnippet = "No text snippet available."
+        } else {
+            disSnippet = "<em>" + item.searchInfo.textSnippet + "</em>";
+        }
+
+        let disPrice = item.saleInfo.retailPrice;
+        if (disPrice === '' || typeof disPrice === null || typeof disPrice === "undefined") {
+            disPrice = "No pricing info available."
+        } else {
+            disPrice = item.saleInfo.retailPrice.amount + " " + item.saleInfo.retailPrice                     .currencyCode;
+        }
+
+         document.getElementById("bookInfo").innerHTML +=
+            "<br" + "<b>" + disThumbnail + "<br>" +
+            "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
+            "<b>Author: </b>" + disAuthor + "<br>" +
+            "<b>Published Date: </b>" + disPublisher + "<br>" +
+            "<b>Description: </b>" + disDescription + "<br>" +
+            "<b>Page Count: </b>" + disPageCount + "<br>" +
+            "<b>Maturity Rating: </b>" + disMaturityRating + "<br>" +
+            "<b>Number of Ratings: </b>" + disRatingsCount + "<br>" +
+            "<b>Average Score: </b>" + disAverageRating + "<br>" +
+            "<b>Snippet: </b>" + disSnippet + "<br>" +
+            "<b>Price: </b>" + disPrice + "<br>"
+            "</div>" + "<br>";
+      })
 }
 

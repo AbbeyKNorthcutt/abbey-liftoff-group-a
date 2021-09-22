@@ -68,3 +68,7 @@ body{
 .ellipsis {
     cursor: pointer;
 }
+
+a {
+    color: black;
+}
