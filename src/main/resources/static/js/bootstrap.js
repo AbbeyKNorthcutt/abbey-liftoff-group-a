@@ -64,7 +64,7 @@ function search() {
             localStorage.removeItem("selCategory");
             for(let i=0;i<response.items.length;i++) {
                 let item = response.items[i];
-                let isbn = item.volumeInfo.industryIdentifiers[1].identifier;
+                let id = item.id;
                 let descDisplayLen = item.volumeInfo.description != undefined ? item.volumeInfo.description.length : 0;
                 let descFull = item.volumeInfo.description;
                 let descDisplay = '';
@@ -104,7 +104,7 @@ function search() {
                 bookCount++;
                 document.getElementById("list-output").innerHTML +=
                     "<div id='book-partial-desc-" + i + "'>"+
-                    "<br>"+ "<b><a onclick='bookSelectionStorage(this)' href='/book'; id='" + isbn + "'>" + disThumbnail + "</b>" + "<br>"+
+                    "<br>"+ "<b><a onclick='bookSelectionStorage(this)' href='/book'; id='" + id + "'>" + disThumbnail + "</b>" + "<br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                     "<b>Author: </b>>" + disAuthor + "<br>" +
                     "<b>Publisher: </b>" + disPublisher + "<br>" +
@@ -114,7 +114,7 @@ function search() {
 
 
                     "<div id='book-full-desc-" + i + "' hidden>"+
-                    "<br"+"<b><a onclick='bookSelectionStorage(this)' href='/book'; id='" + isbn + "'>" + disThumbnail + "</b><br>"+
+                    "<br"+"<b><a onclick='bookSelectionStorage(this)' href='/book'; id='" + id + "'>" + disThumbnail + "</b><br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                     "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
                     "<b>Publisher: </b>" + item.volumeInfo.publisher + "<br>" +
@@ -127,11 +127,11 @@ function search() {
 }
 
 function displaySelectedBookInfo() {
-   fetch("https://www.googleapis.com/books/v1/volumes?q=isbn:" + localStorage.getItem("storedBook"))
+   fetch("https://www.googleapis.com/books/v1/volumes/" + localStorage.getItem("storedBook"))
       .then(a => a.json())
       .then(response => {
 
-         let item = response.items[0];
+         let item = response;
 
          let desCategory=item.volumeInfo.categories;
          if(desCategory==''||desCategory==null||desCategory=='undefined'){
