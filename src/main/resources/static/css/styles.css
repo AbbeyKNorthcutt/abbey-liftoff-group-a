@@ -4,7 +4,7 @@
 width: 220px;
 }
 
-.tile {
+#bookInfo, #results {
 background-color: #f3f9ff;
 padding: 50px;
 }
