@@ -73,7 +73,7 @@ function search() {
                     descDisplay = item.volumeInfo.description.slice(0, descDisplayLen);
                     descDisplay = descDisplay + "<a class='ellipsis' style='color:red' onclick='showMore(this)'; id='" + i + "'> Read more</a>";
                 }
-                else if(descDisplay==''||descDisplay == null){
+                else if(descDisplay===''|| typeof descDisplay === null || typeof descDisplay === "undefined"){
                                 descDisplay ="No Description is available";
                                 }
                 else{
@@ -103,7 +103,7 @@ function search() {
                 }
                 bookCount++;
                 document.getElementById("list-output").innerHTML +=
-                    "<div id='book-partial-desc-" + i + "'>"+
+                    "<div class='tile' id='book-partial-desc-" + i + "'>"+
                     "<br>"+ "<b><a onclick='bookSelectionStorage(this)' href='/book'; id='" + id + "'>" + disThumbnail + "</b>" + "<br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                     "<b>Author: </b>>" + disAuthor + "<br>" +
@@ -113,7 +113,7 @@ function search() {
                     +"</div>"+"<br>" +
 
 
-                    "<div id='book-full-desc-" + i + "' hidden>"+
+                    "<div class='tile' id='book-full-desc-" + i + "' hidden>"+
                     "<br"+"<b><a onclick='bookSelectionStorage(this)' href='/book'; id='" + id + "'>" + disThumbnail + "</b><br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
                     "<b>Author: </b>" + item.volumeInfo.authors + "<br>" +
@@ -197,6 +197,7 @@ function displaySelectedBookInfo() {
         }
 
          document.getElementById("bookInfo").innerHTML +=
+            "<div class='tile'>" +
             "<br" + "<b>" + disThumbnail + "<br>" +
             "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
             "<b>Author: </b>" + disAuthor + "<br>" +

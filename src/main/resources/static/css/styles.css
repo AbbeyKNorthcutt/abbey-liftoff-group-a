@@ -4,7 +4,7 @@
 width: 220px;
 }
 
-#bookInfo, #results {
+.tile {
 background-color: #f3f9ff;
 padding: 50px;
 }
@@ -74,6 +74,7 @@ body{
     cursor: pointer;
 }
 
-a {
-    color: black;
-}
+ a, a:hover, a:focus, a:active {
+      text-decoration: none;
+      color: black;
+ }
