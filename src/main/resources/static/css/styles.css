@@ -38,9 +38,9 @@ padding: 50px;
 .carousel-container {
     position: absolute;
     bottom: 0;
-    left: 950px;
+    left: 800px;
     right:0;
-    padding-bottom: 40px;
+    padding-bottom: 5px;
 }
 
 .overlay-image {

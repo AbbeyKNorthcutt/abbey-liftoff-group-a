@@ -8,6 +8,21 @@ function bookSelectionStorage(bookSelection) {
     localStorage.setItem("storedBook", input);
 
 }
+function carouselBookOne(bookSelection){
+    let input = bookSelection.id;
+    localStorage.setItem("storedBook", "GZAoAQAAIAAJ");
+}
+
+function carouselBookTwo(bookSelection){
+    let input = bookSelection.id;
+    localStorage.setItem("storedBook", "zM-vZ-JiSFYC");
+}
+
+function carouselBookThree(bookSelection){
+    let input = bookSelection.id;
+    localStorage.setItem("storedBook", "-D8WBAAAQBAJ");
+}
+
 function categorySelectedStorage() {
     let selCategory = document.getElementById("sel1").value;
     console.log(selCategory);
