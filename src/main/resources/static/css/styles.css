@@ -9,20 +9,6 @@ background-color: #f3f9ff;
 padding: 50px;
 }
 
-
-/* Dropdown Menu */
-/*.dropdown {
-        position: relative;
-     	float: right;
-     	cursor: pointer;
-     	text-transform: uppercase;
-     	height:35px;
-     	width:90px;
-     	background-color: #fff;
-     	border: 1px solid #ccc;
-        border: 1px solid rgba(0,0,0);
-    }
-*/
 #results {
    margin: auto;
    position:relative;
@@ -51,8 +37,6 @@ padding: 50px;
     top: 0;
     background-size: cover;
     background-position: center;
-
-
 }
 
 .navbar-brand img {
@@ -61,10 +45,6 @@ padding: 50px;
     height: 70px;
 }
 
-.gradient{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,107,1) 67%, rgba(0,212,255,1) 100%);
-}
 
 body{
     height: 100%;
