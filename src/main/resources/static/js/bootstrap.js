@@ -121,7 +121,7 @@ function search() {
                     "<div class='tile' id='book-partial-desc-" + i + "'>"+
                     "<br>"+ "<b><a onclick='bookSelectionStorage(this)' href='/book'; id='" + id + "'>" + disThumbnail + "</b>" + "<br>"+
                     "<br>" + "<b>Title: </b>" + item.volumeInfo.title + "<br>" +
-                    "<b>Author: </b>>" + disAuthor + "<br>" +
+                    "<b>Author: </b>" + disAuthor + "<br>" +
                     "<b>Publisher: </b>" + disPublisher + "<br>" +
                     "<b>Categories: </b>" + desCategory + "<br>" +
                     "<b>Description: </b>" + descDisplay + "</a><br>"
